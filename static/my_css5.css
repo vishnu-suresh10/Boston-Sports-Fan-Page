@@ -1,0 +1,154 @@
+
+
+fieldset {
+    width: 500px;
+}
+
+leftside{
+    width: 500px;
+    float: left;
+    padding: 10px 10px;
+}
+
+rightside{
+    width: 400px;
+    float: right;
+    padding: 10px 10px;
+}
+
+label.field{
+     text-align: right;
+     width: 100px;
+     float: left;
+     font-weight: bold;
+
+}
+#top
+{
+   text-align: center;
+   font-size: 24px;
+   font-weight: normal;
+   color: blue;
+}
+
+ul {
+    list-style-type: none;
+    margin: 20;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+	 float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+
+    text-decoration: none;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.login {
+    float: right;
+    color: white;
+    padding: 14px 16px;
+}
+.login a {
+    color: white;
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+	font-weight: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #FF6103;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: #FF6103;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #FF6103;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#middle
+{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
+    text-align: left;
+
+	font-size: 24px;
+}
+#middle a{
+		text-decoration: none;
+}
+#middle a:hover{
+		text-decoration: underline;
+}
+#bottom
+{
+    font-size: 12px;
+}

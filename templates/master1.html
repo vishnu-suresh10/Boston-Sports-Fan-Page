@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% endblock %} - Hello Flask!</title>
+  <link type="text/css" rel="stylesheet"
+       href="{{ url_for('static',
+                        filename='my_css5.css')}}" />
+</head>
+<body>
+
+			<ul>
+			<div class="navbar">
+				<a href="{{ url_for('index') }}">Home</a>
+				<a href="{{ url_for('matches') }}">Your Match</a>
+				<a href="{{ url_for('survey') }}">Which Boston Player Are You</a>
+				<a href="{{ url_for('thoughts') }}">Boston Sports Quiz</a>
+        <a href="{{ url_for('leaderboard') }}">LeaderBoard</a>
+
+
+
+
+			</div>
+				<div class="login">
+				  {% if 'username' in session: %}
+				     Welcome {{session['username']}} <a href="{{ url_for('logout') }}">logout</a>
+				  {% else: %}
+             <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('create') }}">create account</a>
+          {% endif %}
+				</div>
+		  </ul>
+        </div>
+
+        <!-- <a href="{{ url_for('leaderboard') }}">LeaderBoard</a> -->
+
+{% block body %}{% endblock %}
+
+</body>
+</html>

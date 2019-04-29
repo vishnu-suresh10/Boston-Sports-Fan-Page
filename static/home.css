@@ -1,0 +1,527 @@
+// VARIABLES;
+
+$col_base: #1b39de;
+$col_primary: #ff0097;
+$col_secondary: #06ffbd;
+$col_neutral: #666;
+$col_active: #ff0038;
+$font_header: "Raleway", sans-serif;
+$font_body: "Source Sans Pro", sans-serif;
+$grad_primary: linear-gradient(135deg, $col_base 0%, $col_primary 100%);
+$grad_secondary: linear-gradient(135deg, $col_secondary 0%, $col_primary 100%);
+$grad_dark: linear-gradient(135deg, darken($col_base, 20) 0%, black 100%);
+$grad_tertiary: linear-gradient(
+  135deg,
+  darken($col_secondary, 20) 0%,
+  $col_active 100%
+);
+$grad_primarytrans: linear-gradient(
+  135deg,
+  $col_base 0%,
+  rgba(64, 150, 238, 0) 25%,
+  rgba(64, 150, 238, 0) 75%,
+  $col_primary 100%
+);
+
+// MIXINS
+
+@mixin special_underline($col, $width, $dist) {
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: $width;
+    background: $col;
+    bottom: $dist;
+    left: calc(50% - #{$width/2});
+  }
+}
+
+// SETUP
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 100%;
+  font-family: $font_body;
+}
+
+figure {
+  margin: 0;
+}
+
+// FRAMEWORK
+.row {
+  max-width: 80rem;
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  div {
+    flex: 0 0 100%;
+    padding: 0 1rem;
+    &.profile {
+      flex-basis: calc(100% - 1rem);
+      padding: 0.5rem;
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  &.nomargin {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 22rem) {
+  .row {
+    div {
+      &.profile {
+        flex-basis: calc(50% - 1rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 42rem) {
+  //row2 - when there are 2 columns within the row
+  .row2 {
+    div {
+      flex: 0 0 50%;
+      padding: 1rem;
+    }
+  }
+  //row4 - when there are 4 columns within the row
+
+  .row4 {
+    div {
+      flex: 0 0 50%;
+
+      &.profile {
+        flex-basis: calc(50% - 1rem);
+      }
+    }
+  }
+  .row div.profile {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 58rem) {
+  .row4 {
+    div {
+      flex: 0 0 25%;
+      &.profile {
+        flex-basis: calc(25% - 1rem);
+      }
+    }
+  }
+
+  .row {
+    div {
+      &.profile {
+        flex-basis: calc(25% - 1rem);
+      }
+    }
+  }
+}
+
+// TYPOGRAPHY
+
+h1,
+h2,
+h3 {
+  font-family: $font_header;
+}
+h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 1.5em;
+  position: relative;
+  margin: 0 0 2em 0;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 6rem;
+    height: 0.8rem;
+    background: $grad_secondary;
+    left: 0;
+    bottom: -1em;
+    border-radius: 0 0.4em 0.4em 0;
+  }
+}
+
+h2.company-name {
+  &:after {
+    display: none;
+  }
+  color: white;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+h2.section_title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8em;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 2em 0 0.5em;
+  letter-spacing: 0.2em;
+  color: $col_primary;
+  &.white {
+    color: white;
+    @include special_underline(white, 5em, -0.5em);
+  }
+  @include special_underline($col_primary, 5em, -0.5em);
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+.service h3 {
+  color: white;
+}
+
+.highlight {
+  color: $col_primary;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  &:focus,
+  &:hover {
+    background: $col_secondary;
+    color: black;
+    border-bottom: none;
+  }
+}
+
+ul {
+  padding: 0 1rem;
+}
+li {
+  margin-bottom: 0.5rem;
+}
+
+figcaption {
+  font-family: serif;
+  font-style: italic;
+  color: black;
+  font-size: 1.2em;
+  margin-top: 0.5em;
+  padding-left: 1em;
+  border-left: 2px solid $col_primary;
+}
+
+// MAIN MENU
+
+.mainmenu ul {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    flex: 0 0 50%;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    a {
+      flex: 1;
+      padding: 0.5em 0 0.8em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+
+      border: 0px solid;
+      position: relative;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 6px;
+        background: $col_secondary;
+        position: absolute;
+        display: block;
+        bottom: 0;
+        transition: opacity 0.3s;
+        opacity: 0;
+      }
+      &.active {
+        &:after {
+          background: $col_primary;
+
+          opacity: 1;
+        }
+      }
+      &:hover,
+      &:focus {
+        background: none;
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 58rem) {
+  .mainmenu ul {
+    li {
+      flex: 0 0 25%;
+    }
+  }
+}
+
+// BUTTONS
+
+.btn,
+button {
+  background: $col_primary;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  border: 0;
+
+  cursor: pointer;
+  &.cta {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  &:hover,
+  &:focus {
+    background: $col_active;
+    color: white;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+// LAYOUT
+
+header {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero {
+  background: $col_base;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  max-width: 80rem;
+  bottom: -1px;
+  z-index: 0;
+  left: 50%;
+  margin-left: -40rem;
+  display: block;
+}
+
+.hero-message {
+  text-align: center;
+  padding: 0 1em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+//ABOUT US SECTION
+
+.about_us {
+  figure {
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: "";
+      width: 6rem;
+      height: 3rem;
+      background: $col_primary;
+      position: absolute;
+      top: -1rem;
+      right: -2.5rem;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// SERVICES SECTION
+.services {
+  background: $grad_dark;
+  padding: 1rem 0;
+}
+
+.service {
+  p {
+    color: white;
+  }
+}
+
+// THE TEAM SECTION
+
+.team {
+  background: $grad_primary;
+  padding: 1rem 0;
+}
+.profile {
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 1rem 0;
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $grad_primarytrans;
+    }
+  }
+  img {
+    display: block;
+  }
+}
+
+.profile_name {
+  text-transform: uppercase;
+  font-family: $font-header;
+  position: relative;
+  padding-bottom: 0.2em;
+  margin: 1em 0 0.5em;
+  @include special_underline($grad_secondary, 5em, 0);
+}
+.profile_position {
+  font-weight: 400;
+  font-style: italic;
+  margin: 1rem 0 0 0;
+}
+
+//CONTACT FORM
+
+.contact_form {
+  div {
+    padding: 1rem 0;
+  }
+  label {
+    font-family: $font_header;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5em;
+    font-family: sans-serif;
+    font-size: 1.1em;
+    border: 2px solid #666;
+    &:focus {
+      border-color: $col_primary;
+    }
+    &:invalid {
+      border: 2px solid red;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 0.5rem 0 3rem;
+  > .row {
+    margin-bottom: 0;
+  }
+  h3 {
+    position: relative;
+    margin-bottom: 3rem;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 6rem;
+      height: 0.4rem;
+      background: $grad_tertiary;
+      left: 0;
+      bottom: -0.5em;
+      border-radius: 0 0.4em 0.4em 0;
+    }
+  }
+
+  a {
+    color: $col_active;
+  }
+}
+
+.icon {
+  border: 0;
+  display: inline-block;
+  margin-right: 0.5rem;
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  &:hover,
+  &:focus {
+    background: none;
+  }
+  &:hover svg path,
+  &:focus svg path {
+    fill: $col_active;
+  }
+}
+
+// MEDIA QUERIES
+
+@media (min-width: 42rem) {
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 2.5em;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+}

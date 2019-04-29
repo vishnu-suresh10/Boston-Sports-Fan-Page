@@ -1,0 +1,106 @@
+{% extends "master1.html" %}
+
+{% block body %}
+  <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans:300,400');
+
+body, html {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 4.5rem;
+  letter-spacing: 0.5rem;
+}
+
+p {
+  margin-top: 1rem;
+}
+
+a {
+  color:#5bc0de;
+}
+
+a:hover {
+  color: #31b0d5;
+  text-decoration: none;
+}
+
+#hm {
+  min-height: 100%;
+}
+
+.heading {
+  color: #FFF;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+}
+
+.middle {
+  color: #FFF;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  width: 100%;
+}
+
+.bg-img1 {
+  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://s.yimg.com/uu/api/res/1.2/sB3jkZ4f4AksoJgNpfRNiQ--~B/aD0xOTc3O3c9MzYxMztzbT0xO2FwcGlkPXl0YWNoeW9u/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/86ea09e1e71e1d937b40f33d37f5ce49');
+}
+
+.bg-img2 {
+  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://i.giphy.com/media/3o7aTypTxJF6I50oQU/giphy.webp');
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-height: 100%;
+  position: relative;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 850px;
+}
+
+.card {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .parallax {background-attachment: scroll;}
+  .heading {top: 30%;}
+  .middle {top: 15%;}
+}
+
+
+  </style>
+
+  <div class="container-fluid parallax bg-img1">
+    <div class="heading text-center">
+      <h2>Your Pair Well With</h2>
+      <h1 class="text-uppercase">Zdeno Chara</h1>
+    </div>
+  </div>
+
+ {% endblock %}

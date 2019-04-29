@@ -1,0 +1,215 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard 🔥</title>
+
+
+
+      <style>
+      body {
+        background-color: white;
+        z-index: 1;
+        text-align: center;
+        overflow-y: hidden;
+        color: white;
+        font-family: Helvetica;
+      }
+
+      .animated {
+        z-index: 0;
+        transform: translateZ(0);
+        height: 100%;
+        max-width: 100%;
+      }
+
+      .animated li {
+        position: absolute;
+        list-style: none;
+        display: block;
+        background-color: #fb7700;
+        top: -200px;
+        animation: anim 3s infinite;
+        animation-timing-function: linear;
+      }
+
+      .animated li:nth-child(1) {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        left: 12%;
+      }
+      .animated li:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        left: 24%;
+        animation-delay: 2s;
+        animation-duration: 4s;
+      }
+      .animated li:nth-child(3) {
+        width: 10px;
+        height: 10px;
+        left: 36%;
+        animation-delay: 1s;
+        animation-duration: 5s;
+      }
+      .animated li:nth-child(4) {
+        width: 80px;
+        height: 80px;
+        left: 48%;
+        animation-delay: 2s;
+        animation-duration: 3s;
+      }
+      .animated li:nth-child(5) {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        left: 60%;
+        animation-duration: 5s;
+      }
+      .animated li:nth-child(6) {
+        width: 70px;
+        height: 70px;
+        left: 72%;
+        animation-delay: 3s;
+      }
+      .animated li:nth-child(7) {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        left: 84%;
+        animation-delay: 1s;
+      }
+
+      @keyframes anim {
+        0% {
+          transform: translateY(0);
+          -webkit-transform: translateY(0);
+        }
+        100% {
+          transform: translateY(500px) rotate(630deg);
+          -webkit-transform: translateY(500px) rotate(630deg);
+        }
+      }
+
+      .navbar {
+          overflow: hidden;
+          background-color: #333;
+          font-family: Arial, Helvetica, sans-serif;
+      	 float: left;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+
+          text-decoration: none;
+      }
+
+      .navbar a {
+          float: left;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+      .login {
+          float: right;
+          color: white;
+          padding: 14px 16px;
+      }
+      .login a {
+          color: white;
+      }
+
+      .hsonuc {
+          position:absolute;
+          top:70px;
+          left:35%; /* Positions 50% from right (right edge will be at center) */
+          /* margin-right:70px; /* Positions 200px to the left of center */ */
+      }
+
+      .hsonuc1 {
+          position:absolute;
+          top:70px;
+          left:65%; /* Positions 50% from right (right edge will be at center) */
+          /* margin-right:70px; /* Positions 200px to the left of center */ */
+      }
+
+      #navofthebar{
+          list-style-type: none;
+          margin: 20;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
+      </style>
+
+
+</head>
+
+<body>
+  <ul id="navofthebar">
+  <div class="navbar">
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('matches') }}">Your Match</a>
+    <a href="{{ url_for('survey') }}">Which Boston Player Are You</a>
+    <a href="{{ url_for('thoughts') }}">Boston Sports Quiz</a>
+    <a href="{{ url_for('leaderboard') }}">LeaderBoard</a>
+
+
+
+
+  </div>
+    <div class="login">
+      {% if 'username' in session: %}
+         Welcome {{session['username']}} <a href="{{ url_for('logout') }}">logout</a>
+      {% else: %}
+         <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('create') }}">create account</a>
+      {% endif %}
+    </div>
+  </ul>
+
+  <h1 class="hsonuc" style="color:black;">🔥The High Score Today is: </h1>
+  <p>
+    <br>
+    <br>
+
+  {% if msg == "none" :%}
+      <p> No matches :(</p>
+   {% else: %}
+
+   {% set text = msg.split('\n') %}
+
+
+      {% for para in text: %}
+
+         <h1 class="hsonuc1" style="color:black;">{{para}} 🔥</h1>
+
+      {% endfor %}
+
+    {% endif %}
+  </p>
+  <br>
+<ul class="animated">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+
+
+</body>
+
+</html>
